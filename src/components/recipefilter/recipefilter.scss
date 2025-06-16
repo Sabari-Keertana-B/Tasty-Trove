@@ -1,0 +1,324 @@
+// Define Colors and Styles
+$primary-bg: linear-gradient(to right, #111, #333);
+$text-color: #222;
+$white: #fff;
+$button-color: #ff5722;
+$button-hover: #e64a19;
+
+.recipe-filter-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: $primary-bg;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    overflow: hidden; // Prevents background overflow issues
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%; // Covers only the top half
+        background: url("/glitter2.png") repeat;
+        background-size: cover;
+        opacity: 0.4;
+        mix-blend-mode: soft-light;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%; // Covers only the bottom half
+        background: url("/glitter2.png") repeat;
+        background-size: cover;
+        opacity: 0.4;
+        mix-blend-mode: soft-light;
+        transform: rotate(180deg); // Rotates the bottom glitter background
+        pointer-events: none;
+    }
+
+    .recipe-container {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 800px;
+        text-align: center;
+        color: $text-color;
+        max-height: 160vh;
+        overflow-y: auto;
+        position: relative;
+        z-index: 1; // Ensures it stays above the glitter effect
+        min-height: 160vh;
+        
+    }
+
+    .quote {
+        margin-top: 60px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 10px;
+        max-width: 800px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    }
+
+    .recipe-container {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 800px;
+        text-align: center;
+        color: $text-color;
+        max-height: 161vh;
+        overflow-y: auto;
+        position: relative;
+        z-index: 1; 
+        margin-top: 30px;
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: $text-color;
+        margin-bottom: 20px;
+    }
+
+    // Filter Section
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 20px;
+
+        select {
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: $white;
+            color: $text-color; // ensures visible text on white bg
+            appearance: none; 
+        }
+
+        .apply-filter {
+            background: $button-color;
+            color: $white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+
+            &:hover {
+                background: $button-hover;
+            }
+        }
+    }
+
+    // Recipe Grid
+    .recipe-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        width: 100%;
+        margin-top: 20px;
+
+        .recipe-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            .recipe-image {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+            }
+
+            .recipe-info {
+                padding: 10px;
+            }
+
+            .recipe-name {
+                font-size: 18px;
+                font-weight: bold;
+                color: $text-color;
+            }
+        }
+    }
+
+    // Loading Text
+    .loading-text {
+        font-size: 18px;
+        color: $text-color;
+        margin-top: 20px;
+    }
+
+    // Initial Message Section (Instead of "No Recipes Found")
+    .initial-message {
+        font-size: 18px;
+        font-weight: bold;
+        color: #555;
+        margin-top: 20px;
+        padding: 10px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    // No Results (Hidden initially)
+    .no-results {
+        font-size: 18px;
+        font-weight: bold;
+        color: #d32f2f;
+        margin-top: 20px;
+        display: none; // Initially hidden
+    }
+
+    // Recipe Details Page
+    .recipe-details {
+        text-align: left;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 100%;
+
+        .back-button {
+            background: #1976d2;
+            color: $white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+
+            &:hover {
+                background: #1565c0;
+            }
+        }
+
+        .recipe-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .recipe-image-large {
+            width: 60%;              /* Smaller width */
+            height: auto;            /* Keep aspect ratio */
+            max-height: 300px;       /* Optional: limit height */
+            border-radius: 8px;
+            object-fit: cover;
+            display: block;         
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-top: 15px;
+            color: $text-color;
+        }
+
+        .ingredients-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+
+            li {
+                font-size: 16px;
+                margin: 5px 0;
+            }
+        }
+
+        .instructions {
+            font-size: 16px;
+            line-height: 1.5;
+            color: $text-color;
+            margin-top: 10px;
+        }
+
+        .save-btn {
+            background: #ff4081;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        
+            &:hover {
+                background: #e91e63;
+            }
+        }
+        
+    }
+    .login-popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);  /* semi-transparent dark overlay */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;  /* make sure it's on top */
+      }
+      
+      .login-popup {
+        background: white;  /* popup background */
+        padding: 20px 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        color: #333;  /* text color */
+        max-width: 300px;
+        text-align: center;
+      }
+      
+      .login-popup button {
+        margin-top: 15px;
+        padding: 8px 16px;
+        background-color: #ff6f61;  /* some nice button color */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+      
+      .login-popup button:hover {
+        background-color: #e65c50;
+      }
+      
+}

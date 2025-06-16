@@ -1,0 +1,37 @@
+html{
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+// Global Variables
+$primary-bg: linear-gradient(to right, #111, #333);
+$accent-color: #facc15; // Yellow for CTA
+$text-color: white;
+
+// Reset and Global Styles
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "serif";
+}
+
+body {
+background: $primary-bg;
+color: $text-color;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+section{
+  width:98vw;
+  height: 100vh;
+  scroll-snap-align: center;
+}

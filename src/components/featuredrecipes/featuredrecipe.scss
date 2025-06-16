@@ -1,0 +1,186 @@
+$primary-bg: linear-gradient(to right, #111, #333);
+
+.featured-recipe-page {
+  background: $primary-bg;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+  position: relative;
+  color: white;
+
+  // Gold Glitter Overlay (Top)
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url("/glitter.png") repeat;
+    background-size: cover;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // Gold Glitter Overlay (Bottom)
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;  
+    left: 0;
+    width: 100%;
+    height: 40vh;
+    background: url("/glitter.png") repeat;
+    background-size: cover;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+    transform: rotate(180deg); 
+  }
+
+  .recipe-container {
+    max-width: 1000px;
+    width: 85%;
+    padding: 30px 15px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s ease;
+  }
+
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    
+    max-height: 400px; // Fixed height to enable scrolling
+    overflow-y: auto;
+    padding: 10px;
+
+    // Scrollbar Styling
+    scrollbar-width: thin; // Firefox support
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 4px;
+    }
+  }
+
+  .recipe-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    .recipe-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .recipe-info {
+      padding: 15px;
+      text-align: center;
+      color: black;
+    }
+  }
+
+  .recipe-details {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.95);
+    color: black;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 1200px;
+    max-height: 400px;
+    margin: 20px auto;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+    .recipe-name {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  
+    .recipe-image-large {
+  width: 60%;              /* Smaller width */
+  height: auto;            /* Keep aspect ratio */
+  max-height: 300px;       /* Optional: limit height */
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;          /* Needed for margin auto to work */
+  margin: 0 auto;          /* Centers the image horizontally */
+}
+  
+    .ingredients-list,
+    .instructions {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+  
+    li {
+      font-size: 0.9rem;
+      padding: 3px 0;
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+    .page-button {
+      background: #ffcc00;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 5px;
+      transition: 0.3s ease;
+
+      &:hover {
+        background: #ffaa00;
+      }
+    }
+  }
+}

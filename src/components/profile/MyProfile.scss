@@ -1,0 +1,87 @@
+$primary-color: #111;
+$accent-color: #facc15;
+$text-color: white;
+.profile-page {
+    min-height: 100vh;
+    background-image: url('/profilebg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 6rem;
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        position: absolute;
+        left: 70%;
+        background: rgba(0, 0, 0, 0.7); // Black with 70% opacity
+        padding: 0.5rem 1rem;
+        margin-bottom: 25rem;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    
+        .logo {
+          width: 50px; // Smaller logo
+          height: auto;
+        }
+    
+        .app-name {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: $text-color;
+        }
+      }
+
+    .profile-container {
+      background: #111;
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      width: 100%;
+      max-width: 400px;
+      color: #f1c40f; // Yellow text by default
+
+      .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1.2rem;
+        background: transparent;
+        border: none;
+        font-size: 1.8rem;
+        color: #f7d600;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      
+        &:hover {
+          transform: scale(1.2);
+          color: #ffd700;
+        }
+      }
+      
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        color: #f7d600; // Brighter yellow for heading
+      }
+  
+      .profile-details {
+        p {
+          margin-bottom: 0.8rem;
+          font-size: 1rem;
+          color: #fff;
+  
+          span {
+            font-weight: 600;
+            color: #fff; // Slightly bolder yellow for labels
+          }
+        }
+      }
+    }
+  }
+  

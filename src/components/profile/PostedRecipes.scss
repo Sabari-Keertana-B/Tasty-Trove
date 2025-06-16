@@ -1,0 +1,89 @@
+.posted-recipe-page {
+    min-height: 100vh;
+    background-image: url('/postedbg.png'); // You can replace with your desired background
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+  
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+  
+    .posted-container {
+      position: relative;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 900px;
+      max-height: 80vh;
+      overflow-y: auto;
+      z-index: 1;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      color: white;
+  
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #facc15; // emerald green
+        text-shadow: 1px 1px 4px #000;
+      }
+  
+      .posted-recipes-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+  
+      .posted-recipe-card {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 1rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        transition: transform 0.3s ease;
+        backdrop-filter: blur(5px);
+  
+        &:hover {
+          transform: scale(1.02);
+        }
+  
+        img {
+          width: 120px;
+          height: 90px;
+          object-fit: cover;
+          border-radius: 10px;
+          margin-right: 1rem;
+        }
+  
+        .posted-recipe-details {
+          h2 {
+            font-size: 1.2rem;
+            margin: 0 0 0.5rem;
+            color: #fff;
+          }
+  
+          p {
+            font-size: 0.95rem;
+            color: #ddd;
+          }
+        }
+      }
+      
+    }
+
+}
+  

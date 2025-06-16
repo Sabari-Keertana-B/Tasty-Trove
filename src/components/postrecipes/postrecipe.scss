@@ -1,0 +1,88 @@
+// Background image for the page
+.post-recipe-container {
+  background-image: url('postbg.png'); // Replace with the correct path
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh; // Ensure the background covers the full viewport height
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  // Frosty black container effect
+  .form-container {
+    background-color: rgba(0, 0, 0, 0.5); // Black with some transparency
+    border-radius: 10px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px; // Adjust the max width as needed
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Optional shadow for a better effect
+    backdrop-filter: blur(10px); // Frost effect
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+
+    // Shift the container slightly to the left
+    margin-left: -350px; // Adjust this value to move the container left
+    transform: translateX(-20px); // Another way to move it slightly left, if you need more control
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      input,
+      textarea {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.1); // Slightly transparent background
+        color: #fff;
+        font-size: 1rem;
+        outline: none;
+
+        &::placeholder {
+          color: #ddd;
+        }
+      }
+
+      button {
+        padding: 12px 20px;
+        background-color: #d32f2f; // Customize button color
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #ff4a39; // Hover effect
+        }
+      }
+
+      .message {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 1rem;
+
+        &.success {
+          color: #28a745; // Green for success
+        }
+
+        &.error {
+          color: #dc3545; // Red for error
+        }
+      }
+    }
+  }
+}
