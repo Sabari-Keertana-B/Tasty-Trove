@@ -23,7 +23,7 @@ const RecipeFilter = () => {
   useEffect(() => {
     const fetchFilters = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/recipes/filters");  // Ensure the URL matches your backend
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/recipes/filters`);  // Ensure the URL matches your backend
         const data = await response.json();
 
         if (data) {
@@ -46,7 +46,7 @@ const RecipeFilter = () => {
     const fetchDefaultRecipes = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:5000/api/recipes/all");  // Backend endpoint for all recipes
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/recipes/all`);  // Backend endpoint for all recipes
         const data = await response.json();
         setRecipes(data.recipes || []);
       } catch (error) {
@@ -95,7 +95,7 @@ const RecipeFilter = () => {
   const fetchRecipeDetails = async (id) => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:5000/api/recipes/${id}`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/recipes/${id}`);
       const data = await response.json();
       setSelectedRecipe(data.recipe);
     } catch (error) {
@@ -118,7 +118,7 @@ const RecipeFilter = () => {
       const token = await user.getIdToken();
   
       await axios.post(
-        "http://localhost:5000/api/favorites/save",
+        `${import.meta.env.VITE_API_URL}/api/favorites/save`,
         {
           recipeId: recipe._id,
           recipeName: recipe.name,
