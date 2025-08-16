@@ -28,7 +28,7 @@ const PostRecipe = () => {
     const token = await user.getIdToken();
 
     // Fetch user name from your backend users API
-    const userResponse = await axios.get(`http://localhost:5000/api/users/${user.uid}`, {
+    const userResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/${user.uid}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -38,7 +38,7 @@ const PostRecipe = () => {
 
     // Now post the recipe including userId and userName
     const response = await axios.post(
-      'http://localhost:5000/api/recipes/add',
+      `${import.meta.env.VITE_API_URL}/api/recipes/add`,
       {
         name,
         ingredients: ingredients.split(',').map(item => {
