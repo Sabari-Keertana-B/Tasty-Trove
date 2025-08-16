@@ -72,7 +72,7 @@ const RecipeFilter = () => {
   
     try {
       setLoading(true);
-      let url = "http://localhost:5000/api/recipes/all?";
+      let url = `${import.meta.env.VITE_API_URL}/api/recipes/all?`;
   
       if (selectedCategory) url += `category=${selectedCategory}&`;
       if (selectedArea) url += `area=${selectedArea}&`;
