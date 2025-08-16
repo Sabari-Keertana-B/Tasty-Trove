@@ -16,7 +16,7 @@ const SavedRecipes = ({ onClose }) => {
         const user = auth.currentUser;
 
         if (user) {
-          const response = await axios.get(`http://localhost:5000/api/favorites/user/${user.uid}`);
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/favorites/user/${user.uid}`);
           setSavedDishes(response.data);
         }
         setLoading(false);
