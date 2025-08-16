@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./featuredrecipe.scss"; // Import SCSS file
 
-const BASE_URL = "http://localhost:5000/api/recipes"; // use your deployed URL if online
+const BASE_URL = `${import.meta.env.VITE_API_URL}/api/recipes`;
+ // use your deployed URL if online
 
 const FeaturedRecipe = () => {
   const [search, setSearch] = useState("");
