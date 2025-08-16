@@ -15,7 +15,7 @@ const MyProfile = ({ onClose }) => {
         if (!currentUser) return;
 
         const uid = currentUser.uid;
-        const response = await axios.get(`http://localhost:5000/api/users/${uid}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/${uid}`);
 
         setUser({
           name: response.data.name,
