@@ -74,7 +74,7 @@ const FirstPage = ({ featuredRef, contactRef, onDropdownClick }) => {
     const firebaseUser = userCredential.user;
 
     // Save user data to MongoDB
-    await axios.post("http://localhost:5000/api/users", {
+    await axios.post(`${import.meta.env.VITE_API_URL}/api/users`, {
       uid: firebaseUser.uid,
       name: formData.name,
       email: formData.email,
